@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar Perfil - Le Petit Café</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #2d2d2d;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: #eb5424; font-size: 1.4rem; }
+        .form-group { text-align: left; margin-bottom: 1rem; }
+        label { display: block; font-size: 0.8rem; margin-bottom: 5px; color: #bbb; }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn:hover { background-color: #cf441b; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¡Hola, {{ user.name }}!</h1>
+        <p style="font-size: 0.8rem; color: #888;">Completa tus datos para el taller</p>
+        <form method="POST">
+            <div class="form-group">
+                <label>TIPO DE DOCUMENTO</label>
+                <select name="tipo_doc" required>
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>NÚMERO DE DOCUMENTO</label>
+                <input type="text" name="num_doc" placeholder="Ej: 10203040" required>
+            </div>
+            <button type="submit" class="btn">GUARDAR EN MYSQL</button>
+        </form>
+    </div>
+</body>
+</html>
